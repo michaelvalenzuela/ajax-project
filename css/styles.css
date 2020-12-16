@@ -34,5 +34,6 @@ label {
 }
 
 .submit-btn {
-
+  position: relative;
+  left: 135px;
 }

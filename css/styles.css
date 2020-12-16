@@ -1,0 +1,29 @@
+label {
+  display: block;
+}
+
+
+.container {
+}
+
+.header-title {
+  text-align: center;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.col-2{
+  padding: 0px 15px;
+}
+
+.location-input {
+  text-align: center;
+  width: 320px;
+  height: 30px;
+}

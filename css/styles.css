@@ -3,8 +3,12 @@ label {
 }
 
 
-/* .container {
-} */
+.container {
+  align-items: center;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
 
 .header-title {
   text-align: center;
@@ -13,12 +17,11 @@ label {
 .row {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
   padding: 10px;
 }
 
-.col-2{
+.col{
   padding: 0px 15px;
 }
 
@@ -26,4 +29,10 @@ label {
   text-align: center;
   width: 320px;
   height: 30px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.submit-btn {
+
 }

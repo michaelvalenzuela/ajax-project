@@ -39,13 +39,22 @@ label {
 
 .recall-container {
   width: 60%;
-  border: 1px solid black;
   margin: auto;
+  padding: 10px;
+}
+
+.recall {
+  border: 1px solid black;
+  margin: 5px;
+  margin-bottom: 30px;
   padding: 10px;
 }
 
 .recall-row {
   display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: space-between;
 }
 
 .product-title {
@@ -58,9 +67,4 @@ label {
 
 .footer-recall {
   margin-bottom: 0;
-}
-
-.right {
-  position: relative;
-  left: 165px;
 }

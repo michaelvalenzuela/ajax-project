@@ -47,3 +47,20 @@ label {
 .recall-row {
   display: flex;
 }
+
+.product-title {
+  margin-top: 0;
+}
+
+.reason-text {
+  margin-top: 2px;
+}
+
+.footer-recall {
+  margin-bottom: 0;
+}
+
+.right {
+  position: relative;
+  left: 165px;
+}

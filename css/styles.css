@@ -1,0 +1,70 @@
+label {
+  display: block;
+}
+
+.container {
+  align-items: center;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+.header-title {
+  text-align: center;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.col{
+  padding: 0px 15px;
+}
+
+.location-input {
+  text-align: center;
+  width: 320px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.submit-btn {
+  position: relative;
+  left: 135px;
+}
+
+.recall-container {
+  width: 60%;
+  margin: auto;
+  padding: 10px;
+}
+
+.recall {
+  border: 1px solid black;
+  margin: 5px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.recall-row {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.product-title {
+  margin-top: 0;
+}
+
+.reason-text {
+  margin-top: 2px;
+}
+
+.footer-recall {
+  margin-bottom: 0;
+}

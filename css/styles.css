@@ -2,7 +2,6 @@ label {
   display: block;
 }
 
-
 .container {
   align-items: center;
   margin: auto;
@@ -36,4 +35,15 @@ label {
 .submit-btn {
   position: relative;
   left: 135px;
+}
+
+.recall-container {
+  width: 60%;
+  border: 1px solid black;
+  margin: auto;
+  padding: 10px;
+}
+
+.recall-row {
+  display: flex;
 }

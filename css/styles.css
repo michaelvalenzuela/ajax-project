@@ -57,6 +57,11 @@ label {
   justify-content: space-between;
 }
 
+.recall-detail {
+  border: 1px solid black;
+  margin-top: 30px;
+}
+
 .product-title {
   margin-top: 0;
 }

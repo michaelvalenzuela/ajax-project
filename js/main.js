@@ -1,4 +1,6 @@
 let $recallRetainer = document.getElementById("recalls");
+let $recallDetail = document.getElementById("recallDetail");
+let $recallSearchPage = document.getElementById("recallSearchPage");
 let $submitButton = document.querySelector(".submit-btn");
 let $form = document.querySelector("form");
 let recalls = [];
@@ -73,6 +75,11 @@ function renderRecalls(){
     $recallDiv.appendChild($reasonText);
     $recallDiv.appendChild($recallRow);
 
+    $recallDiv.addEventListener('click', function(e){
+      console.log(recall);
+      renderRecallDetail(recall);
+    });
+
     $recallRetainer.appendChild($recallDiv);
   }
 }
@@ -99,20 +106,39 @@ function transformReason(str){
   return str.slice(0, end) + "...";
 }
 
-//   <h2>Product Name</h2>
-//   <h3>address, city, state</h3>
-//   <h4>Amount Recalled</h4>
-//   <h5>Reason For recall</h5>
-//   <p>
-// Reason for recall
-//   </p>
-//   <h5>Report Date</h5>
-//   <p>Some report date</p>
-//   <h5>Recall Start Date</h5>
-//   <p>Some recall start date</p>
-//   <h5>Termination Date</h5>
-//   <p>Some Termination Date</p>
-function renderRecallDetail() {
+function renderRecallDetail(recall) {
+  removeAllChildNodes($recallDetail);
 
+  $recallSearchPage.classList.add("hide");
+
+  let $productName = document.createElement("h2");
+  $productName.classList.add("product-title");
+  $productName.textContent = recall.product_description;
+
+  let $location = document.createElement("h3");
+  $location.textContent = recall.address_1 + ", " + recall.city + ", " + recall.state;
+
+  let $amountRecalled = document.createElement("h4");
+  $amountRecalled.textContent = recall.product_quantity;
+
+  let $reasonForRecallTitle = document.createElement("h5");
+  $reasonForRecallTitle.textContent = "Reason For Recall:";
+
+  let $reasonForRecallText = document.createElement("p");
+  $reasonForRecallText.textContent = recall.reason_for_recall;
+
+  let $reportDate = document.createElement("h5");
+  $reportDate.textContent = transformDate(recall.report_date);
+
+  $recallDetail.appendChild($productName);
+  $recallDetail.appendChild($location);
+  $recallDetail.appendChild($amountRecalled);
+  $recallDetail.appendChild($reasonForRecallTitle);
+  $recallDetail.appendChild($reasonForRecallText);
+  $recallDetail.appendChild($reportDate);
+
+  console.log(recall);
+
+  $recallDetail.classList.remove("hide");
 }
 getRecalls();

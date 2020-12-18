@@ -68,3 +68,7 @@ label {
 .footer-recall {
   margin-bottom: 0;
 }
+
+.hide {
+  display: none;
+}

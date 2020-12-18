@@ -99,4 +99,20 @@ function transformReason(str){
   return str.slice(0, end) + "...";
 }
 
+//   <h2>Product Name</h2>
+//   <h3>address, city, state</h3>
+//   <h4>Amount Recalled</h4>
+//   <h5>Reason For recall</h5>
+//   <p>
+// Reason for recall
+//   </p>
+//   <h5>Report Date</h5>
+//   <p>Some report date</p>
+//   <h5>Recall Start Date</h5>
+//   <p>Some recall start date</p>
+//   <h5>Termination Date</h5>
+//   <p>Some Termination Date</p>
+function renderRecallDetail() {
+
+}
 getRecalls();

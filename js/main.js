@@ -1,5 +1,32 @@
 let $recallRetainer = document.getElementById("recalls");
+let $submitButton = document.querySelector(".submit-btn");
+let $form = document.querySelector("form");
 let recalls = [];
+
+$form.addEventListener("submit", function(e){
+  e.preventDefault();
+  let startDate = $form.startDate.value.replaceAll("-","");
+  let endDate = $form.endDate.value.replaceAll("-", "");
+  getRecallsDates(startDate, endDate);
+});
+
+
+function getRecallsDates(startDate, endDate) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://api.fda.gov/food/enforcement.json?search=report_date:[" + startDate +"+TO+"+ endDate + "]&limit=10");
+  xhr.responseType = "json";
+  xhr.addEventListener('load', function () {
+    recalls = xhr.response.results;
+    if(recalls){
+      renderRecalls();
+    }
+    else {
+      removeAllChildNodes($recallRetainer);
+    }
+  });
+  xhr.send();
+}
+
 
 function getRecalls(){
   let xhr = new XMLHttpRequest();

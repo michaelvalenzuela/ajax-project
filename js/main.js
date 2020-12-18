@@ -7,15 +7,37 @@ $form.addEventListener("submit", function(e){
   e.preventDefault();
   let startDate = $form.startDate.value.replaceAll("-","");
   let endDate = $form.endDate.value.replaceAll("-", "");
-  getRecallsDates(startDate, endDate);
+  let location = $form.location.value;
+  if(startDate && endDate){
+    getRecallsByDates(startDate, endDate);
+  }
+  else if(location){
+    getRecallsByLocation(location);
+  }
 });
 
 
-function getRecallsDates(startDate, endDate) {
+function getRecallsByDates(startDate, endDate) {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "https://api.fda.gov/food/enforcement.json?search=report_date:[" + startDate +"+TO+"+ endDate + "]&limit=10");
   xhr.responseType = "json";
   xhr.addEventListener('load', function () {
+    recalls = xhr.response.results;
+    if(recalls){
+      renderRecalls();
+    }
+    else {
+      removeAllChildNodes($recallRetainer);
+    }
+  });
+  xhr.send();
+}
+
+function getRecallsByLocation(location){
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://api.fda.gov/food/enforcement.json?search=state:"+location+"&limit=10");
+  xhr.responseType = "json";
+  xhr.addEventListener("load", function(){
     recalls = xhr.response.results;
     if(recalls){
       renderRecalls();

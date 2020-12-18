@@ -1,4 +1,6 @@
 let $recallRetainer = document.getElementById("recalls");
+let $recallDetail = document.getElementById("recallDetail");
+let $recallSearchPage = document.getElementById("recallSearchPage");
 let $submitButton = document.querySelector(".submit-btn");
 let $form = document.querySelector("form");
 let recalls = [];
@@ -43,7 +45,7 @@ function getRecalls(startDate, endDate, state){
 
 function renderRecalls(){
   removeAllChildNodes($recallRetainer);
-  for(recall of recalls){
+  for(let recall of recalls){
     let $recallDiv = document.createElement("div");
     $recallDiv.classList.add("recall");
 
@@ -73,6 +75,10 @@ function renderRecalls(){
     $recallDiv.appendChild($reasonText);
     $recallDiv.appendChild($recallRow);
 
+    $recallDiv.addEventListener('click', function(e){
+      renderRecallDetail(recall);
+    });
+
     $recallRetainer.appendChild($recallDiv);
   }
 }
@@ -99,4 +105,61 @@ function transformReason(str){
   return str.slice(0, end) + "...";
 }
 
+function renderRecallDetail(recall) {
+  removeAllChildNodes($recallDetail);
+
+  $recallSearchPage.classList.add("hide");
+
+  let $productName = document.createElement("h2");
+  $productName.classList.add("product-title");
+  $productName.textContent = recall.product_description;
+
+  let $location = document.createElement("h3");
+  $location.textContent = recall.address_1 + ", " + recall.city + ", " + recall.state;
+
+  let $amountRecalledTitle = document.createElement("h4");
+  $amountRecalledTitle.textContent = "Amount Recalled:";
+
+  let $amountRecalledInfo = document.createElement("p");
+  $amountRecalledInfo.textContent = recall.product_quantity;
+
+  let $reasonForRecallTitle = document.createElement("h4");
+  $reasonForRecallTitle.textContent = "Reason For Recall:";
+
+  let $reasonForRecallText = document.createElement("p");
+  $reasonForRecallText.textContent = recall.reason_for_recall;
+
+  let $reportDateTitle = document.createElement("h4");
+  $reportDateTitle.textContent = "Report Date:";
+
+  let $reportDate = document.createElement("p");
+  $reportDate.textContent = transformDate(recall.report_date);
+
+  let $recallStartDateTitle = document.createElement("h4");
+  $recallStartDateTitle.textContent = "Recall Start Date:";
+
+  let $recallStartDate = document.createElement("p");
+  $recallStartDate.textContent = transformDate(recall.recall_initiation_date);
+
+  let $terminationDateTitle = document.createElement("h4");
+  $terminationDateTitle.textContent = "Termination Date:";
+
+  let $terminationDate = document.createElement("p");
+  $terminationDate.textContent = transformDate(recall.termination_date);
+
+  $recallDetail.appendChild($productName);
+  $recallDetail.appendChild($location);
+  $recallDetail.appendChild($amountRecalledTitle);
+  $recallDetail.appendChild($amountRecalledInfo);
+  $recallDetail.appendChild($reasonForRecallTitle);
+  $recallDetail.appendChild($reasonForRecallText);
+  $recallDetail.appendChild($reportDateTitle);
+  $recallDetail.appendChild($reportDate);
+  $recallDetail.appendChild($recallStartDateTitle);
+  $recallDetail.appendChild($recallStartDate);
+  $recallDetail.appendChild($terminationDateTitle);
+  $recallDetail.appendChild($terminationDate);
+
+  $recallDetail.classList.remove("hide");
+}
 getRecalls();

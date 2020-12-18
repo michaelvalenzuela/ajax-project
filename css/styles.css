@@ -57,6 +57,11 @@ label {
   justify-content: space-between;
 }
 
+.recall-detail {
+  border: 1px solid black;
+  margin-top: 30px;
+}
+
 .product-title {
   margin-top: 0;
 }
@@ -67,4 +72,8 @@ label {
 
 .footer-recall {
   margin-bottom: 0;
+}
+
+.hide {
+  display: none;
 }

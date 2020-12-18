@@ -8,55 +8,35 @@ $form.addEventListener("submit", function(e){
   let startDate = $form.startDate.value.replaceAll("-","");
   let endDate = $form.endDate.value.replaceAll("-", "");
   let location = $form.location.value;
-  if(startDate && endDate){
-    getRecallsByDates(startDate, endDate);
-  }
-  else if(location){
-    getRecallsByLocation(location);
-  }
+  getRecalls(startDate, endDate, location);
 });
 
-
-function getRecallsByDates(startDate, endDate) {
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://api.fda.gov/food/enforcement.json?search=report_date:[" + startDate +"+TO+"+ endDate + "]&limit=10");
-  xhr.responseType = "json";
-  xhr.addEventListener('load', function () {
-    recalls = xhr.response.results;
-    if(recalls){
-      renderRecalls();
-    }
-    else {
-      removeAllChildNodes($recallRetainer);
-    }
-  });
-  xhr.send();
+function createURL(startDate, endDate, state){
+  let url = "https://api.fda.gov/food/enforcement.json?search=";
+  if(startDate && endDate){
+    let reportDateField = "report_date:[" + startDate + "+TO+" + endDate + "]";
+    url += reportDateField;
+  }
+  if(state){
+    let stateField = "state:" + state;
+    url += stateField;
+  }
+  url += "&limit=10";
+  return url;
 }
 
-function getRecallsByLocation(location){
+function getRecalls(startDate, endDate, state){
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://api.fda.gov/food/enforcement.json?search=state:"+location+"&limit=10");
+  xhr.open("GET", createURL(startDate, endDate, state));
   xhr.responseType = "json";
   xhr.addEventListener("load", function(){
     recalls = xhr.response.results;
     if(recalls){
       renderRecalls();
     }
-    else {
+    else{
       removeAllChildNodes($recallRetainer);
     }
-  });
-  xhr.send();
-}
-
-
-function getRecalls(){
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://api.fda.gov/food/enforcement.json?search=report_date:[20040101+TO+20201231]&limit=10")
-  xhr.responseType = "json";
-  xhr.addEventListener('load', function() {
-    recalls = xhr.response.results;
-    renderRecalls();
   });
   xhr.send();
 }

@@ -60,6 +60,7 @@ label {
 .recall-detail {
   border: 1px solid black;
   margin-top: 30px;
+  background-color: white;
 }
 
 .product-title {
@@ -72,6 +73,13 @@ label {
 
 .footer-recall {
   margin-bottom: 0;
+}
+
+.outer {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 50px;
 }
 
 .hide {

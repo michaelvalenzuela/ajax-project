@@ -3,6 +3,7 @@ let $recallDetail = document.getElementById("recallDetail");
 let $recallSearchPage = document.getElementById("recallSearchPage");
 let $submitButton = document.querySelector(".submit-btn");
 let $form = document.querySelector("form");
+let $detailOuter = document.getElementById("detailOuter");
 let recalls = [];
 
 $form.addEventListener("submit", function(e){
@@ -11,6 +12,14 @@ $form.addEventListener("submit", function(e){
   let endDate = $form.endDate.value.replaceAll("-", "");
   let location = $form.location.value;
   getRecalls(startDate, endDate, location);
+});
+
+$detailOuter.addEventListener("click", function(e){
+  if (e.target === $detailOuter && !$detailOuter.classList.contains("hide")) {
+    $detailOuter.classList.add("hide");
+    $recallDetail.classList.add("hide");
+    $recallSearchPage.classList.remove("hide");
+  }
 });
 
 function createURL(startDate, endDate, state){
@@ -160,6 +169,7 @@ function renderRecallDetail(recall) {
   $recallDetail.appendChild($terminationDateTitle);
   $recallDetail.appendChild($terminationDate);
 
+  $detailOuter.classList.remove("hide");
   $recallDetail.classList.remove("hide");
 }
 getRecalls();

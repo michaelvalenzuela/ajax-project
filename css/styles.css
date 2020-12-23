@@ -1,5 +1,11 @@
 label {
   display: block;
+  color: white;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #030f26;
 }
 
 .container {
@@ -11,6 +17,7 @@ label {
 
 .header-title {
   text-align: center;
+  color: white;
 }
 
 .row {
@@ -34,7 +41,21 @@ label {
 
 .submit-btn {
   position: relative;
-  left: 135px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  left: 101px;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .75em;
+  letter-spacing: 1px;
+  height: 38px;
+  width: 120px;
+  line-height: 38px;
+  overflow: hidden;
+  background-color: #0a84a9;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px rgba(black,.1);
+  border: 0;
 }
 
 .recall-container {
@@ -48,6 +69,12 @@ label {
   margin: 5px;
   margin-bottom: 30px;
   padding: 10px;
+  background-color: white;
+}
+
+.recall:hover{
+  border: 1px solid white;
+  color: red;
 }
 
 .recall-row {
@@ -60,6 +87,7 @@ label {
 .recall-detail {
   border: 1px solid black;
   margin-top: 30px;
+  background-color: white;
 }
 
 .product-title {
@@ -72,6 +100,13 @@ label {
 
 .footer-recall {
   margin-bottom: 0;
+}
+
+.outer {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 50px;
 }
 
 .hide {

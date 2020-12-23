@@ -2,6 +2,11 @@ label {
   display: block;
 }
 
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+    background-color: lightgray;
+}
+
 .container {
   align-items: center;
   margin: auto;
@@ -48,6 +53,11 @@ label {
   margin: 5px;
   margin-bottom: 30px;
   padding: 10px;
+  background-color: white;
+}
+
+.recall:hover{
+  border: 2px solid lightskyblue;
 }
 
 .recall-row {

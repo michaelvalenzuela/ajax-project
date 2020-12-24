@@ -42,7 +42,7 @@ body {
 .submit-btn {
   position: relative;
   font-family: 'IBM Plex Sans', sans-serif;
-  left: 101px;
+  left: 108px;
   color: white;
   font-weight: 600;
   text-transform: uppercase;
@@ -59,9 +59,9 @@ body {
 }
 
 .recall-container {
-  width: 60%;
+  width: 100%;
   margin: auto;
-  padding: 10px;
+  padding: 0px;
 }
 
 .recall {

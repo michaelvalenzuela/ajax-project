@@ -39,11 +39,8 @@ body {
   border: 1px solid;
 }
 
-.submit-btn {
-  position: relative;
+.btn-base {
   font-family: 'IBM Plex Sans', sans-serif;
-  left: 108px;
-  color: white;
   font-weight: 600;
   text-transform: uppercase;
   font-size: .75em;
@@ -52,10 +49,16 @@ body {
   width: 120px;
   line-height: 38px;
   overflow: hidden;
-  background-color: #0a84a9;
   border-radius: 3px;
   box-shadow: 0 15px 30px rgba(black,.1);
   border: 0;
+}
+
+.submit-btn {
+  position: relative;
+  left: 108px;
+  color: white;
+  background-color: #0a84a9;
 }
 
 .recall-container {
@@ -110,7 +113,11 @@ body {
 }
 
 .back-btn {
-
+  position: relative;
+  color: white;
+  margin-top: 20px;
+  left: 20%;
+  background-color: #878f99;
 }
 
 .hide {

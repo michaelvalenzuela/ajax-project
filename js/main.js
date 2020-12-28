@@ -33,7 +33,6 @@ function createURL(startDate, endDate, state){
     url += stateField;
   }
   url += "&limit=10";
-  console.log(url);
   return url;
 }
 

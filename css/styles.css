@@ -25,6 +25,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 10px;
+  margin: 0;
 }
 
 .col{
@@ -56,7 +57,6 @@ body {
 
 .submit-btn {
   position: relative;
-  left: 108px;
   color: white;
   background-color: #0a84a9;
 }
@@ -123,4 +123,34 @@ body {
 
 .hide {
   display: none;
+}
+
+
+@media only screen and (max-width: 500px){
+   input[type=date]{
+    width: 100%;
+    font-size: 9px;
+    height: 22px;
+    padding: 0px;
+    padding-left: 2px;
+  }
+  h3{
+    font-size: 20px;
+  }
+  .product-title{
+    font-size: 24px;
+  }
+  .container {
+    width: 100%;
+  }
+  .col {
+    width: 50%;
+  }
+  .location-input {
+    width: 90%;
+    font-size: 12px;
+  }
+  .back-btn{
+    left:0;
+  }
 }

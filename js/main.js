@@ -99,7 +99,7 @@ function removeAllChildNodes(parent){
 
 function transformDate(date){
   if(!date){
-    return "Date is undefined";
+    return "N/A";
   }
   let year = date.slice(0,4);
   let month = date.slice(4,6);
@@ -110,7 +110,7 @@ function transformDate(date){
 
 function transformReason(str){
   if(!str){
-    return "Reason is undefined";
+    return "N/A";
   }
   let end = str.indexOf(",");
   if(end < 0){

@@ -98,6 +98,9 @@ function removeAllChildNodes(parent){
 }
 
 function transformDate(date){
+  if(!date){
+    return "N/A";
+  }
   let year = date.slice(0,4);
   let month = date.slice(4,6);
   let day = date.slice(6);
@@ -106,6 +109,9 @@ function transformDate(date){
 }
 
 function transformReason(str){
+  if(!str){
+    return "N/A";
+  }
   let end = str.indexOf(",");
   if(end < 0){
     end = 20;

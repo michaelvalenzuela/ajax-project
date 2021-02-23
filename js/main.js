@@ -49,7 +49,7 @@ function getRecalls(startDate, endDate, state){
       removeAllChildNodes($recallRetainer);
     }
   });
-  xhr.onerror = renderError();
+  xhr.onerror = renderError;
   xhr.send();
 }
 

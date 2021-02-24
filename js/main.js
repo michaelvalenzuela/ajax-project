@@ -9,6 +9,7 @@ let recalls = [];
 
 $form.addEventListener("submit", function(e){
   e.preventDefault();
+  $submitButton.setAttribute("disabled", true);
   let startDate = $form.startDate.value.replaceAll("-","");
   let endDate = $form.endDate.value.replaceAll("-", "");
   let location = $form.location.value;
@@ -48,6 +49,7 @@ function getRecalls(startDate, endDate, state){
       removeAllChildNodes($recallRetainer);
     }
   });
+  xhr.onerror = renderError;
   xhr.send();
 }
 
@@ -88,6 +90,7 @@ function renderRecalls(){
     });
 
     $recallRetainer.appendChild($recallDiv);
+    $submitButton.removeAttribute("disabled");
   }
 }
 
@@ -176,5 +179,18 @@ function renderRecallDetail(recall) {
 
   $detailOuter.classList.remove("hide");
   $recallDetail.classList.remove("hide");
+}
+
+function renderError() {
+  removeAllChildNodes($recallRetainer);
+
+  const $errorDiv = document.createElement("div");
+  const $errorMessage = document.createElement("h2");
+  $errorMessage.classList.add("error-title");
+  $errorMessage.textContent = "Connection error has occurred. Please try again.";
+
+  $errorDiv.appendChild($errorMessage);
+  $recallRetainer.appendChild($errorMessage);
+  $submitButton.removeAttribute("disabled");
 }
 getRecalls();

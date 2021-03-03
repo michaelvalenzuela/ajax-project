@@ -46,7 +46,7 @@ function getRecalls(startDate, endDate, state){
       renderRecalls();
     }
     else{
-      removeAllChildNodes($recallRetainer);
+      renderNoRecallsFound();
     }
   });
   xhr.onerror = renderError;
@@ -193,4 +193,17 @@ function renderError() {
   $recallRetainer.appendChild($errorMessage);
   $submitButton.removeAttribute("disabled");
 }
-getRecalls();
+
+function renderNoRecallsFound() {
+  removeAllChildNodes($recallRetainer);
+  const $errorDiv = document.createElement("div");
+  const $errorMessage = document.createElement("h2");
+  $errorMessage.classList.add("error-title");
+  $errorMessage.textContent = "No recalls found. Please try again";
+
+  $errorDiv.appendChild($errorMessage);
+  $recallRetainer.appendChild($errorMessage);
+  $submitButton.removeAttribute("disabled");
+}
+
+// getRecalls();
